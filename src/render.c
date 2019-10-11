@@ -409,9 +409,9 @@ static void render_con_split(Con *con, Con *child, render_params *p, int i) {
             child->deco_rect.x = child->rect.x - con->rect.x;
             child->deco_rect.y = child->rect.y - con->rect.y;
 
-            child->rect.y += p->deco_height;
             child->rect.height -= p->deco_height;
 
+            child->deco_rect.y += child->rect.height;
             child->deco_rect.width = child->rect.width;
             child->deco_rect.height = p->deco_height;
         } else {
@@ -437,8 +437,8 @@ static void render_con_stacked(Con *con, Con *child, render_params *p, int i) {
     child->deco_rect.height = p->deco_height;
 
     if (p->children > 1 || (child->border_style != BS_PIXEL && child->border_style != BS_NONE)) {
-        child->rect.y += (p->deco_height * p->children);
         child->rect.height -= (p->deco_height * p->children);
+        /*child->deco_rect.y += child->rect.height;*/
     }
 }
 
@@ -461,9 +461,9 @@ static void render_con_tabbed(Con *con, Con *child, render_params *p, int i) {
     }
 
     if (p->children > 1 || (child->border_style != BS_PIXEL && child->border_style != BS_NONE)) {
-        child->rect.y += p->deco_height;
         child->rect.height -= p->deco_height;
         child->deco_rect.height = p->deco_height;
+        /*child->deco_rect.y += child->rect.height;*/
     } else {
         child->deco_rect.height = (child->border_style == BS_PIXEL ? 1 : 0);
     }

@@ -407,7 +407,6 @@ void floating_enable(Con *con, bool automatic) {
      * at precisely the position it specified in its original geometry (which
      * is what applications might remember). */
     deco_height = (con->border_style == BS_NORMAL ? render_deco_height() : 0);
-    nc->rect.y -= deco_height;
 
     DLOG("Corrected y = %d (deco_height = %d)\n", nc->rect.y, deco_height);
 
