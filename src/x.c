@@ -616,6 +616,9 @@ void x_draw_decoration(Con *con) {
     x_draw_title_border(con, p);
 
     /* 6: draw the title */
+    if (parent->layout == L_SPLITH || parent->layout == L_SPLITV)
+        goto copy_pixmaps;
+
     int text_offset_y = (con->deco_rect.height - config.font.height) / 2;
 
     const int title_padding = logical_px(2);

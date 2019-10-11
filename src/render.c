@@ -125,7 +125,11 @@ void render_con(Con *con, bool already_inset) {
     }
 
     /* find the height for the decorations */
-    params.deco_height = render_deco_height();
+    if (con->layout == L_STACKED || con->layout == L_TABBED) {
+        params.deco_height = render_deco_height();
+    } else {
+        params.deco_height = 4;
+    }
 
     /* precalculate the sizes to be able to correct rounding errors */
     params.sizes = precalculate_sizes(con, &params);
