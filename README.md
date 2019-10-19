@@ -5,6 +5,17 @@
 
 # i3-gaps
 
+## About this fork
+
+This fork changes i3-gaps in the following ways as a proof of concept:
+
+- Titlebars are located at the bottom of windows.
+- Titlebars are shown as thin stripes except for tabbed and stacked layouts.
+
+Note that the code changes are crude and may lead to crashes and other bugs.
+Furthermore, this fork may not be up-to-date with the latest version of i3-gaps.
+**Do not use this fork unless you know what you are doing.**
+
 ## What is i3-gaps?
 
 i3-gaps is a fork of [i3wm](https://www.i3wm.org), a tiling window manager for X11. It is kept up to date with upstream, adding a few additional features such as gaps between windows (see below for a complete list).
